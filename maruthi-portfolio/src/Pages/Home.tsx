@@ -1,6 +1,5 @@
 import Navbar from "../components/Navbar";
 import { FaArrowRight, FaGithub, FaLinkedin, FaDribbble } from 'react-icons/fa';
-import profile from '../assets/profile.png';
 import { FaArrowDown } from "react-icons/fa6";
 
 function Home() {
@@ -18,7 +17,7 @@ function Home() {
 
                 <div className="absolute top-[-8.5rem] left-1/2 -translate-x-1/2 w-[65rem] h-[44rem]">
                     <img
-                        src={profile}
+                        src='/profile.png'
                         alt="Profile Pic"
                         className="w-full h-full object-cover object-top"
                     />
