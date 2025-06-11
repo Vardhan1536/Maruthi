@@ -5,7 +5,7 @@ import { FaArrowDown } from "react-icons/fa6";
 function Home() {
     return (
         // Using overflow-x-hidden on the body can prevent horizontal scroll issues caused by large elements
-        <div className="bg-white font-helvetica font-light overflow-x-hidden">
+        <div className="bg-white font-helvetica font-light overflow-hidden">
             <Navbar />
 
             {/* --- HERO HEADING --- */}
