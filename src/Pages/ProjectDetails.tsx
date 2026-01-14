@@ -36,6 +36,56 @@ export default function ProjectDetail() {
             description: "Another project description here...",
             images: ["/p2.jpg", "/p3.jpg"],
         },
+        {
+            slug: "project-3",
+            title: "Another Project",
+            tags: ["Development"],
+            client: "ABC Corp",
+            duration: "3 Months",
+            location: "Remote",
+            description: "Another project description here...",
+            images: ["/p2.jpg", "/p3.jpg"],
+        },
+        {
+            slug: "project-4",
+            title: "Another Project",
+            tags: ["Development"],
+            client: "ABC Corp",
+            duration: "3 Months",
+            location: "Remote",
+            description: "Another project description here...",
+            images: ["/p2.jpg", "/p3.jpg"],
+        },
+        {
+            slug: "project-5",
+            title: "Another Project",
+            tags: ["Development"],
+            client: "ABC Corp",
+            duration: "3 Months",
+            location: "Remote",
+            description: "Another project description here...",
+            images: ["/p2.jpg", "/p3.jpg"],
+        },
+        {
+            slug: "project-6",
+            title: "Another Project",
+            tags: ["Development"],
+            client: "ABC Corp",
+            duration: "3 Months",
+            location: "Remote",
+            description: "Another project description here...",
+            images: ["/p2.jpg", "/p3.jpg"],
+        },
+        {
+            slug: "project-7",
+            title: "Another Project",
+            tags: ["Development"],
+            client: "ABC Corp",
+            duration: "3 Months",
+            location: "Remote",
+            description: "Another project description here...",
+            images: ["/p2.jpg", "/p3.jpg"],
+        },
     ];
 
     // export default projects;
@@ -47,7 +97,7 @@ export default function ProjectDetail() {
     }
 
     return (
-        <section className="min-h-screen bg-[#E63946] text-white">
+        <section className="min-h-screen bg-[#E63946] text-white font-helvetica">
 
             {/* TOP BAR (BACK BUTTON) */}
             <div className="px-10 py-6">
@@ -68,7 +118,7 @@ export default function ProjectDetail() {
                 ← Back
             </button> */}
 
-                <h1 className="text-8xl leading-none font-bold uppercase">
+                <h1 className="text-8xl leading-none font-bold uppercase tracking-tighter">
                     {project.title}
                 </h1>
 
@@ -87,7 +137,7 @@ export default function ProjectDetail() {
             {/* CONTENT */}
             <div className="bg-[#F4F4F4] text-black px-10 py-12">
 
-                <div className="w-full h-[1.2px] bg-[#2E2E2E] mb-8 font"></div>
+                <div className="w-full h-[1.2px] bg-[#2E2E2E] mb-8 opacity-[66%]"></div>
 
                 {/* META */}
                 <div className="grid grid-cols-3 gap-10 text-md mb-10">

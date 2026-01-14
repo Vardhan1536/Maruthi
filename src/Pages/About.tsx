@@ -21,7 +21,7 @@ function About() {
 
   return (
     // Added an id for potential anchor linking from other pages
-    <section id="about">
+    <section id="about" className="font-helvetica">
       <div id="about" className="bg-white py-16 lg:py-20 px-4 sm:px-6 font-helvetica">
       <div className="max-w-7xl mx-auto">
 
@@ -55,12 +55,12 @@ function About() {
                  py-1 border-b border-[#2E2E2E]/60"
               >
                 {/* LEFT COLUMN */}
-                <p className="text-2xl font-bold text-red-500 uppercase">
+                <p className="text-2xl font-bold text-red-500 uppercase italic">
                   {skill.name}
                 </p>
 
                 {/* RIGHT COLUMN */}
-                <p className="text-lg text-[#708090] text-right font-[600]">
+                <p className="text-lg opacity-[60%] text-right font-[600]">
                   {skill.description}
                 </p>
               </div>

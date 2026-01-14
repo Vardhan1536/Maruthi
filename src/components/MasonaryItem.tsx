@@ -1,33 +1,39 @@
 import { useEffect, useRef, useState } from "react";
 
-export default function MasonryItem({ height }) {
+export default function MasonryItem({ src }) {
   const ref = useRef(null);
-  const [rowSpan, setRowSpan] = useState(1);
+  const [span, setSpan] = useState(1);
 
-  useEffect(() => {
+  const calculateSpan = () => {
     if (!ref.current) return;
 
-    const gridRowHeight = 10; // must match auto-rows
-    const gap = 16; // Tailwind gap-4 = 16px
+    const rowHeight = 8; // must match auto-rows
+    const gap = 8;       // gap-2 = 8px
 
-    const contentHeight = height;
-    const span = Math.ceil((contentHeight + gap) / gridRowHeight);
+    const height = ref.current.getBoundingClientRect().height;
+    const rowSpan = Math.ceil((height + gap) / rowHeight);
 
-    setRowSpan(span);
-  }, [height]);
+    setSpan(rowSpan);
+  };
+
+  useEffect(() => {
+    calculateSpan();
+    window.addEventListener("resize", calculateSpan);
+    return () => window.removeEventListener("resize", calculateSpan);
+  }, []);
 
   return (
     <div
-      ref={ref}
-      style={{
-        gridRowEnd: `span ${rowSpan}`,
-        height: `${height}px`,
-      }}
-      className="
-        border 
-        border-red-300
-        bg-white
-      "
-    />
+      style={{ gridRowEnd: `span ${span}` }}
+      className="overflow-hidden rounded-md bg-white"
+    >
+      <img
+        ref={ref}
+        src={src}
+        alt=""
+        className="w-full h-auto block object-cover"
+        onLoad={calculateSpan}
+      />
+    </div>
   );
 }

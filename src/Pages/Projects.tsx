@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 // import { projects } from "../data/projects";
 
-  const projects = [
+const projects = [
   {
     slug: "project-1",
     title: "Project Name",
@@ -34,6 +34,56 @@ import { useNavigate } from "react-router-dom";
     description: "Another project description here...",
     images: ["/p2.jpg", "/p3.jpg"],
   },
+  {
+    slug: "project-3",
+    title: "Another Project",
+    tags: ["Development"],
+    client: "ABC Corp",
+    duration: "3 Months",
+    location: "Remote",
+    description: "Another project description here...",
+    images: ["/p2.jpg", "/p3.jpg"],
+  },
+  {
+    slug: "project-4",
+    title: "Another Project",
+    tags: ["Development"],
+    client: "ABC Corp",
+    duration: "3 Months",
+    location: "Remote",
+    description: "Another project description here...",
+    images: ["/p2.jpg", "/p3.jpg"],
+  },
+  {
+    slug: "project-5",
+    title: "Another Project",
+    tags: ["Development"],
+    client: "ABC Corp",
+    duration: "3 Months",
+    location: "Remote",
+    description: "Another project description here...",
+    images: ["/p2.jpg", "/p3.jpg"],
+  },
+  {
+    slug: "project-6",
+    title: "Another Project",
+    tags: ["Development"],
+    client: "ABC Corp",
+    duration: "3 Months",
+    location: "Remote",
+    description: "Another project description here...",
+    images: ["/p2.jpg", "/p3.jpg"],
+  },
+  {
+    slug: "project-7",
+    title: "Another Project",
+    tags: ["Development"],
+    client: "ABC Corp",
+    duration: "3 Months",
+    location: "Remote",
+    description: "Another project description here...",
+    images: ["/p2.jpg", "/p3.jpg"],
+  },
 ];
 // split lanes
 const leftLane = projects.filter((_, i) => i % 2 === 0);
@@ -44,13 +94,22 @@ export default function Projects() {
   const navigate = useNavigate();
 
   return (
-    <section className="h-screen w-full flex bg-[#E63946] overflow-hidden">
+    <section className="h-screen w-full flex bg-[#E63946] overflow-hidden font-helvetica">
 
       {/* LEFT PANEL */}
       <div className="w-[45%] p-10 text-white relative">
-        <button className="border border-white px-3 py-1 text-sm mb-10"  onClick={() => navigate("/")}>
+        <button
+          className="border border-white px-3 py-1 text-sm mb-10"
+          onClick={() => {
+            navigate("/");
+            setTimeout(() => {
+              document.querySelector("#work")?.scrollIntoView({ behavior: "smooth" });
+            }, 50);
+          }}
+        >
           ← Back
         </button>
+
 
         <h1 className="text-8xl font-[400] tracking-wide">PROJECTS</h1>
         <div className="w-20 h-[2px] bg-white mt-4" />

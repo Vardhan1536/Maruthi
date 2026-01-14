@@ -10,13 +10,18 @@ export default function Photographs() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
-      className="min-h-screen bg-white px-10 py-6"
+      className="min-h-screen bg-white px-10 py-6 font-helvetica"
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <button
           className="border border-red-500 px-3 py-1 text-sm text-red-500"
-          onClick={() => navigate("/")}
+           onClick={() => {
+            navigate("/");
+            setTimeout(() => {
+              document.querySelector("#work")?.scrollIntoView({ behavior: "smooth" });
+            }, 50);
+          }}
         >
           ← Back
         </button>
