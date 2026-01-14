@@ -60,7 +60,7 @@ function About() {
                 </p>
 
                 {/* RIGHT COLUMN */}
-                <p className="text-lg opacity-[60%] text-right font-[600]">
+                <p className="text-lg opacity-[60%] text-right text-[#1E1E1E]">
                   {skill.description}
                 </p>
               </div>

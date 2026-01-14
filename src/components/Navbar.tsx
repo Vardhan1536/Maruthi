@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { useLocation, useNavigate } from "react-router-dom";
 
 /* ---------- NavLink ---------- */
 type NavLinkProps = {
@@ -10,13 +11,35 @@ type NavLinkProps = {
 };
 
 const NavLink = ({ href, children, isActive, onClick }: NavLinkProps) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+
     if (href.startsWith("#")) {
-      e.preventDefault();
-      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+      // If NOT on home page → go home first
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => {
+          document
+            .querySelector(href)
+            ?.scrollIntoView({ behavior: "smooth" });
+        }, 50);
+      } else {
+        // Already on home → just scroll
+        document
+          .querySelector(href)
+          ?.scrollIntoView({ behavior: "smooth" });
+      }
+
+      onClick?.();
+      return;
     }
+
     onClick?.();
   };
+
 
   return (
     <a
@@ -38,6 +61,9 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
 
+  const location = useLocation();
+  const isProjectDetail = location.pathname.startsWith("/projects/");
+
   const navLinks = [
     { title: "Home", href: "#home", id: "home" },
     { title: "About", href: "#about", id: "about" },
@@ -46,8 +72,10 @@ function Navbar() {
     { title: "Contact", href: "#contact", id: "contact" },
   ];
 
-  /* ---------- Scroll Spy ---------- */
+  /* ---------- Scroll Spy (Home page only) ---------- */
   useEffect(() => {
+    if (location.pathname !== "/") return;
+
     const sections = document.querySelectorAll("section[id]");
 
     const observer = new IntersectionObserver(
@@ -59,7 +87,7 @@ function Navbar() {
         });
       },
       {
-        rootMargin: "-50% 0px -50% 0px", // middle of viewport
+        rootMargin: "-50% 0px -50% 0px",
         threshold: 0,
       }
     );
@@ -67,7 +95,12 @@ function Navbar() {
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
-  }, []);
+  }, [location.pathname]);
+
+  // Force "Work" active on project detail pages
+  const computedActiveSection = isProjectDetail
+    ? "work"
+    : activeSection;
 
   return (
     <div className="sticky top-0 bg-white border-b border-black w-full z-50">
@@ -79,7 +112,7 @@ function Navbar() {
             <NavLink
               key={link.title}
               href={link.href}
-              isActive={activeSection === link.id}
+              isActive={computedActiveSection === link.id}
             >
               {link.title}
             </NavLink>
@@ -104,7 +137,7 @@ function Navbar() {
             <NavLink
               key={link.title}
               href={link.href}
-              isActive={activeSection === link.id}
+              isActive={computedActiveSection === link.id}
               onClick={() => setIsMenuOpen(false)}
             >
               {link.title}
