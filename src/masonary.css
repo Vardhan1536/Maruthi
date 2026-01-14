@@ -1,0 +1,25 @@
+.wrapper {
+  width: 95%;
+  max-width: 1500px;
+  margin: auto;
+  padding-top: 40px;
+}
+
+.my-masonry-grid {
+  display: flex;
+  margin-left: -20px;
+  width: auto;
+}
+
+.my-masonry-grid_column {
+  padding-left: 20px;
+  background-clip: padding-box;
+}
+
+.box {
+  background: #fff;
+  border: 2px solid rgba(255, 120, 120, 0.7);
+  border-radius: 6px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
