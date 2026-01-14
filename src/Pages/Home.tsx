@@ -1,4 +1,5 @@
 import { FaArrowRight, FaGithub, FaLinkedin, FaDribbble } from 'react-icons/fa';
+import { LuSquareArrowDown } from "react-icons/lu";
 
 function Home() {
     return (
@@ -51,7 +52,23 @@ function Home() {
 
                 </div>
             </div>
+            <div className="
+          absolute
+          top-[105%]          
+          left-[50%]         
+          -translate-y-1/2
+          -translate-x-1/2
+          z-50
+          pointer-events-none
+          flex
+          gap-2
+          text-[#E63946]
+        ">
+                 More About Me <LuSquareArrowDown className="text-2xl" />
+                </div>
         </div>
+         
+        
         </section>
     );
 }
